@@ -11,6 +11,8 @@ public:
 
 	void updateValidMoves();
 	void capture(int & score, bool & victory);
+	int getAverageValue();
+	int getAdjustedValue();
 
 private:
 	void checkRowPosMoves();

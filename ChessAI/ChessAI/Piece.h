@@ -19,11 +19,16 @@ public:
 
 	int getRow();
 	int getCol();
+	bool getColor();
+
 	Sprite & getSprite();
+	void updateSpriteLoc();
+
 	void move(int newRow, int newCol); // Each move() moves the piece to the x and y coords if they're valid
 	void move(sf::Vector2i newLoc);
-	void updateSpriteLoc();
-	bool getColor();
+
+	virtual int getAverageValue() = 0; // Returns the value 100 - 1,000 centipawns as defined by the derived class
+	virtual int getAdjustedValue() = 0; // Returns the average value plus the value of each move it can make
 	virtual void updateValidMoves() = 0; // Finds all valid squares for a piece to move to and pushes them to the vector
 	virtual void capture(int & score, bool & victory) = 0; // The piece has been captured. Update the captor's score and victory bool
 

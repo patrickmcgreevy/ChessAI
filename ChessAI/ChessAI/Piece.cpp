@@ -14,6 +14,7 @@ Piece::Piece(const int & x, const int & y, const bool & newColor, vector<vector<
 	mColor{ newColor }, 
 	mBoard{pBoard}
 {
+	(*mBoard)[x][y] = this;
 }
 
 Piece::Piece(Piece & oldPiece) :

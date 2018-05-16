@@ -18,6 +18,16 @@ void Rook::capture(int & score, bool & victory)
 
 }
 
+int Rook::getAverageValue()
+{
+	return 520;
+}
+
+int Rook::getAdjustedValue()
+{
+
+}
+
 void Rook::updateValidMoves()
 {
 	checkColNegMoves();

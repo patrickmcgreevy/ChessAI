@@ -14,9 +14,12 @@ int main()
 		}
 	}
 
-	boardArr[3][4] = new Rook(3, 4, true, &boardArr, newText);
-	boardArr[3][5] = new Rook(3, 5, false, &boardArr, newText);
-	boardArr[4][4] = new Rook(4, 4, true, &boardArr, newText);
+	//boardArr[3][4] = new Rook(3, 4, true, &boardArr, newText);
+	Piece * pRook = new Rook(3, 4, true, &boardArr, newText);
+	pRook = new Rook(3, 5, true, &boardArr, newText);
+	pRook = new Rook(4, 4, true, &boardArr, newText);
+	pRook = new Rook(3, 3, true, &boardArr, newText);
+	pRook = new Rook(2, 4, true, &boardArr, newText);
 
 	boardArr[3][4]->updateValidMoves();
 
