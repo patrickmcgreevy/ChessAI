@@ -6,20 +6,20 @@ Piece::Piece()
 	rowCoord = 0;
 	colCoord = 0;
 	mColor = true;
-	mBoardArr = nullptr;
+	//mBoardArr = nullptr;
 }
 
-Piece::Piece(int & x, int & y, bool & newColor, Piece *& board) :
+Piece::Piece(const int & x, const int & y, const bool & newColor, vector<vector<Piece *>> * pBoard) :
 	rowCoord{ x }, colCoord{ y }, 
 	mColor{ newColor }, 
-	mBoardArr{board}
+	mBoard{pBoard}
 {
 }
 
 Piece::Piece(Piece & oldPiece) :
 	rowCoord{oldPiece.getRow()}, colCoord{oldPiece.getCol()}, 
 	mColor{oldPiece.getColor()},
-	mBoardArr{oldPiece.mBoardArr},
+	mBoard{oldPiece.mBoard},
 	mSprite{oldPiece.mSprite}
 {
 }
@@ -79,7 +79,8 @@ void Piece::setColCoord(int y)
 
 void Piece::move(int x, int y)
 {
-
+	rowCoord = x;
+	colCoord = y;
 }
 
 void Piece::move(sf::Vector2i v)
@@ -94,19 +95,19 @@ void Piece::updateSpriteLoc()
 
 bool Piece::checkValidMove(int x, int y)
 {
-	Piece * tempBoard = mBoardArr;
-	tempBoard += x * 8 + y;
+	//Piece * tempBoard = mBoardArr;
+	//tempBoard += x * 8 + y;
 	//tempBoard += y;
 	//return checkCoords(x, y) && ((tempBoard == nullptr || mColor != tempBoard->getColor()));
-	return checkCoords(x, y) && tempBoard == nullptr;
+	return checkCoords(x, y) && (*mBoard)[x][y] == nullptr;
 }
 
 bool Piece::checkEnemyPiece(int x, int y)
 {
-	Piece * tempLoc = mBoardArr;
-	tempLoc += x * 8 + y;
+	//Piece * tempLoc = mBoardArr;
+	//tempLoc += x * 8 + y;
 
-	return tempLoc->getColor() != this->getColor();
+	return checkCoords(x, y) && ((*mBoard)[x][y] != nullptr) && ((*mBoard)[x][y]->getColor() != this->getColor());
 }
 
 void Piece::queueMove(int x, int y)

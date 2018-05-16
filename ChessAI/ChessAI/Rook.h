@@ -6,7 +6,7 @@ using sf::Texture;
 class Rook : public Piece
 {
 public:
-	Rook(int & x, int & y, bool & color, Piece *& board, Texture & rookTexture);
+	Rook(const int & x, const int & y, const bool & color, vector<vector<Piece *>> * pBoard, Texture & rookTexture);
 	~Rook();
 
 	void updateValidMoves();

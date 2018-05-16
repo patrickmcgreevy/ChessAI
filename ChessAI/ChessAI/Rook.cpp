@@ -1,9 +1,10 @@
 #pragma once
 #include "Rook.h"
 
-Rook::Rook(int & x, int & y, bool & c, Piece *& board, Texture & text) :
-	Piece(x, y, c, board)
+Rook::Rook(const int & x, const int & y, const bool & c, vector<vector<Piece *>> * pBoard, Texture & text) :
+	Piece(x, y, c, pBoard)
 {
+	std::cout << "Rook constructor." << std::endl;
 	getSprite().setTexture(text);
 }
 
@@ -19,7 +20,10 @@ void Rook::capture(int & score, bool & victory)
 
 void Rook::updateValidMoves()
 {
-
+	checkColNegMoves();
+	checkColPosMoves();
+	checkRowNegMoves();
+	checkRowPosMoves();
 }
 
 void Rook::checkRowPosMoves()
@@ -30,6 +34,54 @@ void Rook::checkRowPosMoves()
 	{
 		queueMove(cRow, cCol);
 		cRow++;
+	}
+
+	if (checkEnemyPiece(cRow, cCol))
+	{
+		queueMove(cRow, cCol);
+	}
+}
+
+void Rook::checkRowNegMoves()
+{
+	int cRow = getRow() - 1, cCol = getCol();
+
+	while (checkValidMove(cRow, cCol))
+	{
+		queueMove(cRow, cCol);
+		cRow--;
+	}
+
+	if (checkEnemyPiece(cRow, cCol))
+	{
+		queueMove(cRow, cCol);
+	}
+}
+
+void Rook::checkColPosMoves()
+{
+	int cRow = getRow(), cCol = getCol() + 1;
+
+	while (checkValidMove(cRow, cCol))
+	{
+		queueMove(cRow, cCol);
+		cCol++;
+	}
+
+	if (checkEnemyPiece(cRow, cCol))
+	{
+		queueMove(cRow, cCol);
+	}
+}
+
+void Rook::checkColNegMoves()
+{
+	int cRow = getRow(), cCol = getCol() - 1;
+
+	while (checkValidMove(cRow, cCol))
+	{
+		queueMove(cRow, cCol);
+		cCol--;
 	}
 
 	if (checkEnemyPiece(cRow, cCol))

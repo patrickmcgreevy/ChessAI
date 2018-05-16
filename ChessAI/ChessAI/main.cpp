@@ -1,7 +1,35 @@
+#include "Rook.h"
 #include <SFML/Graphics.hpp>
 
 int main()
 {
+	Texture newText;
+	vector<vector<Piece *>> boardArr;
+	for (int i = 0; i <= 7; ++i)
+	{
+		boardArr.push_back(*(new vector<Piece *>));
+		for (int j = 0; j <= 7; ++j)
+		{
+			boardArr[i].push_back(nullptr);
+		}
+	}
+
+	boardArr[3][4] = new Rook(3, 4, true, &boardArr, newText);
+	boardArr[3][5] = new Rook(3, 5, false, &boardArr, newText);
+	boardArr[4][4] = new Rook(4, 4, true, &boardArr, newText);
+
+	boardArr[3][4]->updateValidMoves();
+
+	for (int i = 0; i <= 7; ++i)
+	{
+		for (int j = 0; j <= 7; ++j)
+		{
+			delete boardArr[i][j];
+		}
+	}
+
+	std::cout << "done" << std::endl;
+
 	/*sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
 	sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Green);

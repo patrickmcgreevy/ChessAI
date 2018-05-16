@@ -13,7 +13,7 @@ class Piece
 {
 public:
 	Piece();
-	Piece(int & x, int & y, bool & color, Piece *& pBoard);
+	Piece(const int & x, const int & y, const bool & color, vector<vector<Piece *>> * pBoard);
 	Piece(Piece & p);
 	~Piece();
 
@@ -41,7 +41,8 @@ private:
 	int rowCoord, colCoord;
 	Color mColor; // true for white, false for black
 	Sprite mSprite;
-	//Piece ** mBoardArr[8][8];
-	Piece * mBoardArr; // 8x8 array of pointers to pieces
+	//Piece * mBoardArr[8][8];
+	//Piece * mBoardArr; // 8x8 array of pointers to pieces
+	vector<vector<Piece *>> * mBoard;
 	vector<sf::Vector2i> mValidMoves; // Vector for keeping track of squares the piece can move to
 };
