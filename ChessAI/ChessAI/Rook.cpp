@@ -25,11 +25,12 @@ int Rook::getAverageValue()
 
 int Rook::getAdjustedValue()
 {
-
+	return getAverageValue();
 }
 
 void Rook::updateValidMoves()
 {
+	clearMoveList();
 	checkColNegMoves();
 	checkColPosMoves();
 	checkRowNegMoves();

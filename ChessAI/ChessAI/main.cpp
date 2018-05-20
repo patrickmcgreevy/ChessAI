@@ -1,4 +1,5 @@
 #include "Rook.h"
+#include "Knight.h"
 #include <SFML/Graphics.hpp>
 
 int main()
@@ -14,12 +15,14 @@ int main()
 		}
 	}
 
-	//boardArr[3][4] = new Rook(3, 4, true, &boardArr, newText);
+	Piece *pKnight = new Knight(4, 4, false, &boardArr, newText);
+	boardArr[4][4]->updateValidMoves();
 	Piece * pRook = new Rook(3, 4, true, &boardArr, newText);
 	pRook = new Rook(3, 5, true, &boardArr, newText);
-	pRook = new Rook(4, 4, true, &boardArr, newText);
-	pRook = new Rook(3, 3, true, &boardArr, newText);
+	pRook = new Rook(6, 5, false, &boardArr, newText);
+	pRook = new Rook(3, 2, true, &boardArr, newText);
 	pRook = new Rook(2, 4, true, &boardArr, newText);
+	pKnight->updateValidMoves();
 
 	boardArr[3][4]->updateValidMoves();
 

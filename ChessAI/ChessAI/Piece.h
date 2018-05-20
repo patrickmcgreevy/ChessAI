@@ -8,6 +8,7 @@ typedef bool Color;
 
 using std::vector;
 using sf::Sprite;
+using sf::Texture;
 
 class Piece
 {
@@ -38,6 +39,7 @@ protected:
 	bool checkValidMove(int newX, int newY); // Checks that the move is within bounds of the board and the square isn't occupied by one of the player's
 	void queueMove(int row, int col);
 	bool checkEnemyPiece(int row, int col);
+	void clearMoveList();
 
 private:
 	bool checkCoord(int coord); // True if [0, 7] (inclusive), false otherwise

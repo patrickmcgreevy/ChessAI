@@ -1,7 +1,7 @@
 #pragma once
 #include "Piece.h"
 
-using sf::Texture;
+//using sf::Texture;
 
 class Rook : public Piece
 {

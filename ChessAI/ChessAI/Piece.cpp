@@ -117,3 +117,8 @@ void Piece::queueMove(int x, int y)
 
 	mValidMoves.push_back(newVec);
 }
+
+void Piece::clearMoveList()
+{
+	mValidMoves.clear();
+}
