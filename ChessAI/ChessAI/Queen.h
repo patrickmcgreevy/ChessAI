@@ -1,11 +1,11 @@
 #pragma once
 #include "Piece.h"
 
-class Bishop : public Piece
+class Queen : public Piece
 {
 public:
-	Bishop(const int & x, const int & y, const bool & color, vector<vector<Piece *>> * pBoard, Texture & bishopTexture);
-	~Bishop();
+	Queen(const int & x, const int & y, const bool & color, vector<vector<Piece *>> * pBoard, Texture & queenTexture);
+	~Queen();
 
 	void updateValidMoves();
 	void capture(int & score, bool & victory);
@@ -17,4 +17,8 @@ private:
 	void checkRowPosColPos();
 	void checkRowPosColNeg();
 	void checkRowNegColNeg();
+	void checkRowPosMoves();
+	void checkRowNegMoves();
+	void checkColPosMoves();
+	void checkColNegMoves();
 };

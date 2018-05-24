@@ -1,11 +1,11 @@
 #pragma once
 #include "Bishop.h"
 
-Bishop::Bishop(const int & x, const int & y, const bool & color, vector<vector<Piece *>> * pBoard, Texture & knightTexture) :
+Bishop::Bishop(const int & x, const int & y, const bool & color, vector<vector<Piece *>> * pBoard, Texture & bishopTexture) :
 	Piece(x, y, color, pBoard)
 {
 	std::cout << "Bishop constructor." << std::endl;
-	getSprite().setTexture(knightTexture);
+	getSprite().setTexture(bishopTexture);
 }
 
 Bishop::~Bishop()

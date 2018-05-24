@@ -1,6 +1,9 @@
 #include "Rook.h"
 #include "Knight.h"
 #include "Bishop.h"
+#include "Queen.h"
+#include "King.h"
+#include "Pawn.h"
 #include <SFML/Graphics.hpp>
 
 int main()
@@ -16,16 +19,16 @@ int main()
 		}
 	}
 
-	Piece *pBishop = new Bishop(4, 4, false, &boardArr, newText);
-	boardArr[4][4]->updateValidMoves();
-	Piece * pRook = new Rook(3, 3, true, &boardArr, newText);
-	pRook = new Rook(2, 6, true, &boardArr, newText);
-	pRook = new Rook(6, 2, false, &boardArr, newText);
-	pRook = new Rook(3, 2, true, &boardArr, newText);
-	pRook = new Rook(6, 6, false, &boardArr, newText);
+	Piece * pPawn = new Pawn(6, 4, true, &boardArr, newText);
 
-	boardArr[4][4]->updateValidMoves();
-	boardArr[3][4]->updateValidMoves();
+	Piece * pRook = new Rook(5, 3, false, &boardArr, newText); // Enemy capable
+	pRook = new Rook(5, 5, true, &boardArr, newText); // Ally
+	//pRook = new Rook(5, 4, false, &boardArr, newText); // In way
+	//pRook = new Rook(3, 2, true, &boardArr, newText);
+	//pRook = new Rook(6, 6, false, &boardArr, newText);
+
+	boardArr[6][4]->updateValidMoves();
+	//boardArr[3][4]->updateValidMoves();
 
 	for (int i = 0; i <= 7; ++i)
 	{
