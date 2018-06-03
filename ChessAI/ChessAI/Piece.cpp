@@ -122,3 +122,17 @@ void Piece::clearMoveList()
 {
 	mValidMoves.clear();
 }
+
+void Piece::printToConsole()
+{
+	if (mColor)
+	{
+		std::cout << "w";
+	}
+	else
+	{
+		std::cout << "b";
+	}
+
+	printPieceToConsole();
+}

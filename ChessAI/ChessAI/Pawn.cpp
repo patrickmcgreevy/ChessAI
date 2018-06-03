@@ -96,3 +96,8 @@ int Pawn::getAdjustedValue()
 {
 	return getAverageValue();
 }
+
+void Pawn::printPieceToConsole()
+{
+	std::cout << "P";
+}

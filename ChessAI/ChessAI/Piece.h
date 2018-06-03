@@ -33,6 +33,8 @@ public:
 	virtual void updateValidMoves() = 0; // Finds all valid squares for a piece to move to and pushes them to the vector
 	virtual void capture(int & score, bool & victory) = 0; // The piece has been captured. Update the captor's score and victory bool
 
+	void printToConsole();
+
 protected:
 	void setRowCoord(int nRow); // Set the member xCoord and yCoord
 	void setColCoord(int yCoord);
@@ -40,6 +42,7 @@ protected:
 	void queueMove(int row, int col);
 	bool checkEnemyPiece(int row, int col);
 	void clearMoveList();
+	virtual void printPieceToConsole() = 0;
 
 private:
 	bool checkCoord(int coord); // True if [0, 7] (inclusive), false otherwise

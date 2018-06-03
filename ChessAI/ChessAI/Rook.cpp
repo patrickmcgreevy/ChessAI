@@ -100,3 +100,8 @@ void Rook::checkColNegMoves()
 		queueMove(cRow, cCol);
 	}
 }
+
+void Rook::printPieceToConsole()
+{
+	std::cout << "R";
+}

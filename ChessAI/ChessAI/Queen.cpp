@@ -171,3 +171,8 @@ void Queen::checkColNegMoves()
 		queueMove(cRow, cCol);
 	}
 }
+
+void Queen::printPieceToConsole()
+{
+	std::cout << "Q";
+}

@@ -11,6 +11,7 @@ public:
 	int getAdjustedValue(); // Returns the average value plus the value of each move it can make
 	void updateValidMoves(); // Finds all valid squares for a piece to move to and pushes them to the vector
 	void capture(int & score, bool &victory);
+	void printPieceToConsole();
 
 private:
 	void checkUpwardMoves();

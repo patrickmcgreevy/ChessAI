@@ -13,6 +13,7 @@ public:
 	void capture(int & score, bool & victory);
 	int getAverageValue();
 	int getAdjustedValue();
+	void printPieceToConsole();
 
 private:
 	void checkRowPosMoves();

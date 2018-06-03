@@ -103,3 +103,8 @@ void Knight::capture(int & score, bool & victory)
 {
 
 }
+
+void Knight::printPieceToConsole()
+{
+	std::cout << "N";
+}

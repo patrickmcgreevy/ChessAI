@@ -104,3 +104,8 @@ void Bishop::checkRowNegColNeg()
 		queueMove(moveRow, moveCol);
 	}
 }
+
+void Bishop::printPieceToConsole()
+{
+	std::cout << "B";
+}

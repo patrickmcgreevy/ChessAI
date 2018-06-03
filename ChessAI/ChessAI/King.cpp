@@ -42,3 +42,8 @@ int King::getAdjustedValue()
 {
 	return getAverageValue();
 }
+
+void King::printPieceToConsole()
+{
+	std::cout << "K";
+}
